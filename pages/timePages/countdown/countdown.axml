@@ -1,0 +1,55 @@
+<view class="page-container">
+
+    <view class='form-mod'>
+    <view class='form-item'>
+        <view class='form-l'>倒计时间</view>
+        <view class='form-r'>
+        <picker value="{{cdTimeIndex}}" range="{{cdTimeList}}" onChange="bindCdTimeChange">
+            <view>
+            {{cdTimeList[cdTimeIndex]}}
+            </view>
+        </picker>
+        </view>
+        <icon class='arr-icon'></icon>
+    </view>
+    <view class='form-item'>
+        <view class='form-l'>倒计方式</view>
+        <view class='form-r'>
+        <picker value="{{cdTypeIndex}}" range="{{cdTypeList}}" onChange="bindCdTypeChange">
+            <view>
+            {{cdTypeList[cdTypeIndex]}}
+            </view>
+        </picker>
+        </view>
+        <icon class='arr-icon'></icon>
+    </view>
+    <!-- 单次 -->
+    <view class='form-item-btns' a:if='{{cdTypeIndex === "0"}}'>
+        <button class='btn-mod btn-sure' onTap='bindCountdownSign'>{{signTimeTips}}</button>
+        <button class='btn-mod btn-sure btn-stop-item' onTap='signCdToOver' a:if='{{!overCdFlag}}'>停止</button>
+    </view>
+    <!-- 连续 -->
+    <view class='form-item-btns' a:if='{{cdTypeIndex === "1"}}'>
+        <button class='btn-mod btn-sure' onTap='bindCountdownCont'>{{contTimeTips}}</button>
+        <button class='btn-mod btn-sure btn-stop-item' onTap='contCdToOver' a:if='{{!overCdFlag}}'>停止</button>
+    </view>
+    </view>
+
+    <view class='font-theme mtb50'>{{overTimeStr}}</view>
+
+    <!-- 单次 -->
+    <view class='list-msg-mod' a:if='{{cdTypeIndex === "0"}}'>
+    <view class='list-item' a:for="{{signStopList}}" a:for-item="data" a:key="data" a:for-index="$index">
+        第 <text class='color-theme'>{{$index + 1}}</text>  次:
+        <text class='color-red'>{{data}}</text>
+    </view>
+    </view>
+
+    <!-- 连续 -->
+    <view class='list-msg-mod' a:if='{{cdTypeIndex === "1"}}'>
+    <view class='list-item' a:for="{{contStopList}}" a:for-item="data" a:key="data" a:for-index="$index">
+        第 <text class='color-theme'>{{$index + 1}}</text>  次:
+        <text class='color-red'>{{data}}</text>
+    </view>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/timePages/sequTiming/sequTiming",
+        "pages/timePages/countdown/countdown",
+        
+        "pages/todos/todos",
+        "pages/add-todo/add-todo"
+    ],
+    "window": {
+        "defaultTitle": "时间助手",
+        "titleBarColor": "#323239"
+    }
+}
