@@ -21,7 +21,7 @@ Page({
 
     //倒计方式
     cdTypeList: ['单次', '连续'],
-    cdTypeIndex: '0',
+    cdTypeIndex: 0,
     
     // 倒计按钮文字-单次
     signTimeTips: '开始',
@@ -44,7 +44,7 @@ Page({
   // 事件-倒计方式-变化
   bindCdTypeChange: function (e) {
     this.setData({
-      cdTypeIndex: '' + e.detail.value
+      cdTypeIndex: e.detail.value
     })
     this.overCd()
   },

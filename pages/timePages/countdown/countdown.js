@@ -21,10 +21,10 @@ Page({
     
     //倒计时间
     cdTimeList: [],
-    cdTimeIndex: '0',
+    cdTimeIndex: 0,
     //倒计方式
     cdTypeList: ['单次', '连续'],
-    cdTypeIndex: '0',
+    cdTypeIndex: 0,
     
     // 倒计按钮文字-单次
     signTimeTips: '开始',
@@ -40,7 +40,7 @@ Page({
   // 事件-倒计时间-变化
   bindCdTimeChange: function (e) {
     this.setData({
-      cdTimeIndex: '' + e.detail.value
+      cdTimeIndex: e.detail.value
     })
     this.overCd()
   },
@@ -48,7 +48,7 @@ Page({
   bindCdTypeChange: function (e) {
       console.log(e.detail.value)
     this.setData({
-      cdTypeIndex: '' + e.detail.value
+      cdTypeIndex: e.detail.value
     })
     this.overCd()
   },
